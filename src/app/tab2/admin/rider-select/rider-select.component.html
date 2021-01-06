@@ -1,0 +1,66 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-segment value="all">
+      <ion-segment-button (click)="this.loadAvailable()" value="all">
+        <ion-label>Available</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="this.loadInProgress()" value="favorites">
+        <ion-label>In Progrss</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="this.riderSelection === 'available'">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let i of rider">
+    <ion-item lines="none">
+   
+      <ion-label>
+        <h2>{{ i.username }}</h2>
+        <h3>
+          ETD KM:{{ locationCalculate(i.longitude, i.latitude).toFixed(2) }}
+          Kilometer
+        </h3>
+        <p>Ph:{{ i.phone }}</p>
+      </ion-label>
+
+      <ion-button (click)="onSelect(i.id)" color="secondary">
+        Select
+      </ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<ion-content *ngIf="this.riderSelection === 'inProgress'">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshDelivering($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let i of progressRider">
+    <ion-item lines="none">
+    
+      <ion-label>
+        <h2>{{ i.username }}</h2>
+        <h3>
+          ETD KM:{{
+            locationCalculate(i.longitude, i.latitude).toFixed(2)
+          }}
+          Kilometer
+        </h3>
+
+        <p>Ph:{{ i.phone }}</p>
+      </ion-label>
+
+      <ion-button (click)="onSelect(i.id)" color="secondary">
+        Select
+      </ion-button>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-checkbox color="danger" slot="start"></ion-checkbox>
+      <ion-label color="danger" checked readonnly>Emegency</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

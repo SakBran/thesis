@@ -1,0 +1,4 @@
+<ion-content>
+  <app-main-page *ngIf="this.appSetting.loginType==='admin'"></app-main-page>
+  <app-res-main-page *ngIf="this.appSetting.loginType==='resturant'"></app-res-main-page>
+</ion-content>

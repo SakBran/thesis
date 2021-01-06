@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <ion-chip (click)="back()">
+            <ion-icon name="chevron-back-circle-outline"></ion-icon>
+            <ion-label>Back</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="5">
+
+        </ion-col>
+        <ion-col size="3">
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle color="primary">Opening Balance Registration Form</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+      
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="person-outline"></ion-icon> Rider<ion-text
+                *ngIf="this.resData.riderID===0||this.resData.riderID===null" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-select  [(ngModel)]="this.resData.riderID">
+              <ion-select-option *ngFor="let item of this.riderList" [value]='item.id'>{{item.username}} | {{item.phone}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="business-outline"></ion-icon> Opening Balance Amount<ion-text
+                *ngIf="this.resData.openingAmount===0" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="resData.openingAmount" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="business-outline"></ion-icon> Date<ion-text
+                *ngIf="this.resData.openingAmount_date===null" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="resData.openingAmount_date" type="date"></ion-input>
+          </ion-item>
+       
+      
+   
+
+      
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button expand="block" color="secondary" shape="round">
+              Cancel
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button *ngIf="this.id===0" (click)="create()" expand="block" color="secondary" shape="round">
+              Save
+            </ion-button>
+            <ion-button *ngIf="this.id!==0" (click)="update()" expand="block" color="secondary" shape="round">
+              Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

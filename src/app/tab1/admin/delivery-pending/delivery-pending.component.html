@@ -1,0 +1,28 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-segment value="all">
+     <!----- <ion-segment-button (click)="this.appSetting.displayFunction('pending')" value="Pending" >
+        <ion-label>Pending</ion-label>
+      </ion-segment-button>----->
+      <ion-segment-button (click)="this.appSetting.displayFunction('no')" value="Rejected">
+        <ion-label>Pending</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="this.appSetting.displayFunction('yes')" value="Acepted">
+        <ion-label>Acepted</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="this.appSetting.displayFunction('delivering')" value="Delivering">
+        <ion-label>Delivering</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngFor="let x of this.appSetting.orderTransationList">
+    <app-resturant-individual-order *ngIf="x" [orderNo]=x.orderModel.id>
+    </app-resturant-individual-order>
+  </ng-container>
+</ion-content>

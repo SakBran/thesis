@@ -1,0 +1,414 @@
+<ng-container
+  *ngIf="
+    this.data !== null &&
+    this.status() === this.appSetting.displaySetting &&
+    this.appSetting.displaySetting !== 'delivering' &&
+    this.data.orderModel.status !== 'delivering' &&
+    this.data.orderModel.status !== 'delivered'
+  "
+>
+  <ion-card
+    *ngIf="
+      this.data !== null && this.status() === this.appSetting.displaySetting
+    "
+  >
+    <ion-card-content>
+      <ion-item>
+        <ion-label>
+          <h2>
+            Order: {{ this.data.orderModel.id }}
+            <ng-container *ngIf="this.data.orderModel.status !== 'delivering'">
+              <ng-container *ngIf="this.status() === 'no'">
+                <ion-label color="secondary">Order!</ion-label>
+              </ng-container>
+              <ng-container *ngIf="this.status() === 'pending'">
+                <ion-label color="secondary">Processing</ion-label>
+              </ng-container>
+              <ng-container *ngIf="this.status() === 'yes'">
+                <ion-label color="success">Accepted</ion-label>
+              </ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="this.data.orderModel.status === 'delivering'">
+              <ion-label color="warning">In Delivery Process</ion-label>
+            </ng-container>
+          </h2>
+          <p>Date: {{ this.data.orderModel.orderDate | date }}</p>
+          <p>
+            Item Price Amount:
+            {{ this.total() - this.data.orderModel.deliveryCharegs }}
+          </p>
+          <p>Delivery Amount: {{ this.data.orderModel.deliveryCharegs }}</p>
+          <p>Total Amount: {{ this.total() }}</p>
+          <p>Cash Type:{{this.data.orderModel.riderTakeOption.toUpperCase()}}</p>
+        </ion-label>
+        <!--------
+        <ng-container *ngIf="this.appSetting.loginType === 'resturant'">
+          <ng-container
+            *ngIf="!this.appSetting.resendBtn(this.data.orderModel.id)"
+          >
+            <ion-button (click)="sendToServer()" color="danger">
+              <ion-icon name="thumbs-down-outline"></ion-icon>
+            </ion-button>
+          </ng-container>
+          <ng-container
+            *ngIf="this.appSetting.resendBtn(this.data.orderModel.id)"
+          >
+            <ion-button (click)="sendToServer()" color="secondary">
+              <ion-icon name="thumbs-up-outline"></ion-icon>
+            </ion-button>
+          </ng-container>
+        </ng-container>
+------>
+      </ion-item>
+
+      <ion-list-header>
+        <ion-label>
+          <h3>
+            Order Detail Descriptions [Qty:{{
+              this.data.orderDetailModels.length
+            }}]
+          </h3>
+        </ion-label>
+        <ion-button (click)="itemVisibleMethod()">
+          <ion-text color="primary">
+            <p *ngIf="this.itemVisible === false">See All</p>
+            <p *ngIf="this.itemVisible === true">Collapse</p>
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+
+      <ng-container *ngIf="this.itemVisible === true">
+        <ng-container *ngFor="let item of data.orderDetailModels">
+          <app-resturant-card *ngIf="item" [data]="item"></app-resturant-card>
+        </ng-container>
+      </ng-container>
+
+      <ion-list-header *ngIf="this.itemVisible === true">
+        <ion-label></ion-label>
+        <ion-button (click)="itemVisibleMethod()">
+          <ion-text color="primary">
+            <p *ngIf="this.itemVisible !== true">See All</p>
+            <p *ngIf="this.itemVisible === true">Collapse</p>
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+    </ion-card-content>
+
+    <ng-container *ngIf="this.appSetting.loginType === 'admin'">
+      <ng-container *ngIf="this.data.orderModel.status !== 'delivering'">
+        <ng-container>
+          <ion-toolbar>
+        
+            <ion-item lines="none">
+              <ion-label>Cash</ion-label>
+              <ion-checkbox  (click)="changeModel('Cash')" slot="end" *ngIf="this.selectedCard.toLocaleLowerCase()==='cash'.toLocaleLowerCase() && 'cash'===this.data.orderModel.riderTakeOption" checked="true" ></ion-checkbox>
+              <ion-checkbox  (click)="changeModel('Cash')" slot="end" *ngIf="this.selectedCard.toLocaleLowerCase()!=='cash'.toLocaleLowerCase() && 'cash'!==this.data.orderModel.riderTakeOption" ></ion-checkbox>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Bank</ion-label>
+              <ion-checkbox  (click)="changeModel('Bank')"slot="end" *ngIf='this.selectedCard.toLocaleLowerCase()==="bank".toLocaleLowerCase() && "bank"===this.data.orderModel.riderTakeOption' checked="true" ></ion-checkbox>
+              <ion-checkbox  (click)="changeModel('Bank')" slot="end" *ngIf='this.selectedCard.toLocaleLowerCase()!=="bank".toLocaleLowerCase() && "bank"!==this.data.orderModel.riderTakeOption'></ion-checkbox>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Deli Cash</ion-label>
+              <ion-checkbox  (click)="changeModel('Deli Cash')"slot="end" *ngIf='this.selectedCard.toLocaleLowerCase()==="deli cash".toLocaleLowerCase() && "deli cash"===this.data.orderModel.riderTakeOption' checked="true" ></ion-checkbox>
+              <ion-checkbox  (click)="changeModel('Deli Cash')" slot="end" *ngIf='this.selectedCard.toLocaleLowerCase()!=="deli cash".toLocaleLowerCase() && "deli cash"!==this.data.orderModel.riderTakeOption'  ></ion-checkbox>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Deli Free</ion-label>
+              <ion-checkbox  (click)="changeModel('Deli Free')" slot="end" *ngIf="this.selectedCard.toLocaleLowerCase()==='deli free'.toLocaleLowerCase() && 'deli free'===this.data.orderModel.riderTakeOption" checked="true" ></ion-checkbox>
+              <ion-checkbox  (click)="changeModel('Deli Free')" slot="end" *ngIf="this.selectedCard.toLocaleLowerCase()!=='deli free'.toLocaleLowerCase() && 'deli free'!==this.data.orderModel.riderTakeOption" ></ion-checkbox>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>FOC</ion-label>
+              <ion-checkbox  (click)="changeModel('FOC')" slot="end" *ngIf="this.selectedCard.toLocaleLowerCase()==='foc'.toLocaleLowerCase() && 'foc'===this.data.orderModel.riderTakeOption" checked="true" ></ion-checkbox>
+              <ion-checkbox  (click)="changeModel('FOC')" slot="end" *ngIf="this.selectedCard.toLocaleLowerCase()!=='foc'.toLocaleLowerCase() && 'foc'!==this.data.orderModel.riderTakeOption" ></ion-checkbox>
+            </ion-item>
+          </ion-toolbar>
+
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <!-----        <ion-button
+            *ngIf="this.status() === 'no'"
+            (click)="sendToServer()"
+            color="warning"
+          >
+            <ion-icon name="cloud-upload-outline"></ion-icon>
+          </ion-button>----->
+
+              <ion-button
+                (click)="onDelete(this.data.orderModel.id)"
+                color="danger"
+              >
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+
+              <ion-button
+                *ngIf="this.status() === 'yes'"
+                routerLink="/managmenet/tabs/tab2/riderSelect/{{ Orderid }}"
+                color="secondary"
+              >
+                <ion-icon name="bicycle-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button
+                *ngIf="this.status() === 'no'"
+                (click)="sendToServer()"
+                color="secondary"
+              >
+                <ion-icon name="thumbs-up-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button
+                routerLink="/managmenet/tabs/tab1/customerInfo/{{ Orderid }}"
+                color="success"
+              >
+                <ion-icon name="location-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ion-card>
+</ng-container>
+
+<ng-container
+  *ngIf="
+    this.data !== null &&
+    this.appSetting.displaySetting === 'delivering' &&
+    this.data.orderModel.status === 'delivering' &&
+      this.data.orderModel.status.toString() !== 'delivered'
+  "
+>
+  <ion-card
+    *ngIf="this.data !== null && this.data.orderModel.status === 'delivering'"
+  >
+    <ion-card-content>
+      <ion-item>
+        <ion-label>
+          <h2>
+            Order: {{ this.data.orderModel.id }}
+            <ng-container *ngIf="this.data.orderModel.status !== 'delivering'">
+              <ng-container *ngIf="this.status() === 'no'">
+                <ion-label color="danger">Rejected</ion-label>
+              </ng-container>
+              <ng-container *ngIf="this.status() === 'pending'">
+                <ion-label color="secondary">Processing</ion-label>
+              </ng-container>
+              <ng-container *ngIf="this.status() === 'yes'">
+                <ion-label color="success">Accepted</ion-label>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                this.appSetting.loginType === 'admin' &&
+                this.data.orderModel.status === 'delivering'
+              "
+            >
+              <ion-label color="warning">In Delivery Process</ion-label>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                this.appSetting.loginType === 'resturant' &&
+                this.data.orderModel.status === 'delivering'
+              "
+            >
+              <ion-label color="secondary">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+              </ion-label>
+            </ng-container>
+          </h2>
+          <p>Date: {{ this.data.orderModel.orderDate | date }}</p>
+          <p>
+            Item Price Amount:
+            {{ this.total() - this.data.orderModel.deliveryCharegs }}
+          </p>
+          <p>Delivery Amount: {{ this.data.orderModel.deliveryCharegs }}</p>
+          <p>Total Amount: {{ this.total() }}</p>
+        </ion-label>
+        <ng-container
+          *ngIf="
+            this.appSetting.loginType === 'resturant' &&
+            this.data.orderModel.status !== 'delivering'
+          "
+        >
+          <ng-container
+            *ngIf="!this.appSetting.resendBtn(this.data.orderModel.id)"
+          >
+            <ion-button (click)="sendToServer()" color="danger">
+              <ion-icon name="thumbs-down-outline"></ion-icon>
+            </ion-button>
+          </ng-container>
+          <ng-container
+            *ngIf="this.appSetting.resendBtn(this.data.orderModel.id)"
+          >
+            <ion-button (click)="sendToServer()" color="secondary">
+              <ion-icon name="thumbs-up-outline"></ion-icon>
+            </ion-button>
+          </ng-container>
+        </ng-container>
+
+        <ng-container
+          *ngIf="
+            this.appSetting.loginType === 'resturant' &&
+            this.data.orderModel.status === 'delivering'
+          "
+        >
+          <ng-container>
+            <ion-button
+              (click)="delivryRecordSave(this.data.orderModel.id)"
+              color="success"
+            >
+              <ion-icon name="bicycle-outline"></ion-icon>
+            </ion-button>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="this.appSetting.loginType === 'admin'">
+          <ng-container *ngIf="this.data.orderModel.status !== 'delivering'">
+            <ng-container>
+              <ion-button
+                *ngIf="this.status() === 'no'"
+                (click)="sendToServer()"
+                color="secondary"
+              >
+                <ion-icon name="cloud-upload-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button
+                *ngIf="this.status() === 'yes'"
+                routerLink="/managmenet/tabs/tab2/riderSelect/{{ Orderid }}"
+                color="success"
+              >
+                <ion-icon name="bicycle-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button
+                (click)="onDelete(this.data.orderModel.id)"
+                color="danger"
+              >
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ion-item>
+
+      <ion-list-header>
+        <ion-label>
+          <h3>
+            Order Detail Descriptions [Qty:{{
+              this.data.orderDetailModels.length
+            }}]
+          </h3>
+        </ion-label>
+        <ion-button (click)="itemVisibleMethod()">
+          <ion-text color="primary">
+            <p *ngIf="this.itemVisible !== true">See All</p>
+            <p *ngIf="this.itemVisible === true">Collapse</p>
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+
+      <ng-container *ngIf="this.itemVisible === true && data.orderDetailModels">
+        <ng-container *ngFor="let item of data.orderDetailModels">
+          <app-resturant-card  [data]="item"></app-resturant-card>
+        </ng-container>
+      </ng-container>
+
+      <ion-list-header *ngIf="this.itemVisible === true">
+        <ion-label></ion-label>
+        <ion-button (click)="itemVisibleMethod()">
+          <ion-text color="primary">
+            <p *ngIf="this.itemVisible !== true">See All</p>
+            <p *ngIf="this.itemVisible === true">Collapse</p>
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+    </ion-card-content>
+
+    <ng-container *ngIf="this.appSetting.loginType === 'rider'">
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="sendToServer()" color="secondary">
+            <ion-icon name="golf-outline"></ion-icon>
+          </ion-button>
+          <ion-button routerLink="customerInfo/{{ Orderid }}" color="secondary">
+            <ion-icon name="location-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ng-container>
+  </ion-card>
+</ng-container>
+
+<ng-container
+  *ngIf="
+    this.data !== null &&
+    this.appSetting.displaySetting === 'delivered' &&
+    this.data.orderModel.status === 'delivered'
+  "
+>
+  <ion-card
+    *ngIf="this.data !== null && this.data.orderModel.status === 'delivered'"
+  >
+    <ion-card-content>
+      <ion-item>
+        <ion-label>
+          <h2>
+            Order: {{ this.data.orderModel.id }}
+            <ng-container>
+              <ng-container *ngIf="this.status() === 'no'">
+                <ion-label color="danger">Rejected</ion-label>
+              </ng-container>
+              <ng-container *ngIf="this.status() === 'pending'">
+                <ion-label color="secondary">Processing</ion-label>
+              </ng-container>
+              <ng-container *ngIf="this.status() === 'yes'">
+                <ion-label color="success">Accepted</ion-label>
+              </ng-container>
+            </ng-container>
+          </h2>
+          <p>Date: {{ this.data.orderModel.orderDate | date }}</p>
+          <p>Total Amount: {{ this.total() }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-list-header>
+        <ion-label>
+          <h3>
+            Order Detail Descriptions [Qty:{{
+              this.data.orderDetailModels.length
+            }}]
+          </h3>
+        </ion-label>
+        <ion-button (click)="itemVisibleMethod()">
+          <ion-text color="primary">
+            <p *ngIf="this.itemVisible === false">See All</p>
+            <p *ngIf="this.itemVisible === true">Collapse</p>
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+
+      <ng-container *ngIf="this.itemVisible === true">
+        <ng-container *ngFor="let item of data.orderDetailModels">
+          <app-resturant-card *ngIf="item" [data]="item"></app-resturant-card>
+        </ng-container>
+      </ng-container>
+
+      <ion-list-header *ngIf="this.itemVisible === true">
+        <ion-label></ion-label>
+        <ion-button (click)="itemVisibleMethod()">
+          <ion-text color="primary">
+            <p *ngIf="this.itemVisible !== true">See All</p>
+            <p *ngIf="this.itemVisible === true">Collapse</p>
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+    </ion-card-content>
+  </ion-card>
+</ng-container>

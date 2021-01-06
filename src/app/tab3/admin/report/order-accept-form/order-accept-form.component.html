@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-input
+      type="date"
+      [(ngModel)]="startDate"
+      placeholder="Awesome Input"
+    ></ion-input>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-input
+      type="date"
+      [(ngModel)]="endDate"
+      placeholder="Awesome Input"
+    ></ion-input>
+  </ion-toolbar>
+  <ion-button (click)="click()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <table width="100%" border="1px">
+        <tr>
+          <th>No</th>
+          <th>Date</th>
+          <th>Descriptions</th>
+          <th>Client</th>
+          <th>Address</th>
+          <th>Rider Take Option</th>
+          <th>Delivery Charges</th>
+        </tr>
+        <tr *ngFor="let item of this.dataList; let i=index">
+          <th>{{ i }}</th>
+          <th>{{ item.orderDate| date}}</th>
+          <th>{{ item.itemName }}</th>
+          <th>{{ item.clientName }}</th>
+          <th>{{ item.ClientAddress }}</th>
+          <th>{{ item.riderTakeOption }}</th>
+          <th>{{ item.deliveryCharegs }}</th>
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

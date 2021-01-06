@@ -1,0 +1,18 @@
+
+<ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+<ion-card *ngFor="let i of this.appSetting.menuFoodDataList">
+  <ion-item>
+
+    <ion-label>
+      <h2>{{ i.itemName }}</h2>
+      <h3>{{ i.price }}</h3>
+      <p>{{ this.appSetting.resName(i.resturant_id) }}</p>
+    </ion-label>
+    <ion-button routerLink="/managmenet/tabs/tab1/add/{{ i.id }}" color="secondary">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-card>

@@ -1,0 +1,38 @@
+<ion-toolbar class="dark">
+  <ion-buttons slot="end">
+    <ion-button routerLink="/login">
+      <ion-icon class="title" name="person-circle-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="invoice()">
+      <ion-icon class="title" name="file-tray-full-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="shopCart()">
+      <ion-badge
+        *ngIf="this.appSetting.orderDetailViewList.length > 0"
+        color="warning"
+        slot="end"
+        >{{ this.appSetting.orderDetailViewList.length }}</ion-badge
+      >
+      <ion-icon class="title" name="basket-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button *ngIf="this.appSetting.searchResturant!==0"  (click)="this.appSetting.searchResturant=0">
+      <ion-icon  class="title" name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-img
+    routerLink="/"
+    slot="start"
+    class="icon"
+    src="/../assets/icon/favicon.png"
+  ></ion-img>
+  <ion-title class="title" routerLink="/"> Sidecar </ion-title>
+</ion-toolbar>
+<ion-progress-bar  *ngIf="!this.appSetting.menuFoodDataList" type="indeterminate"></ion-progress-bar>
+
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+  <app-home-items *ngIf="this.appSetting.categoryList&&this.appSetting.menuFoodDataList&&this.appSetting.resturandDataList" ></app-home-items>
+</ion-content>

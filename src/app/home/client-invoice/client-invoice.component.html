@@ -1,0 +1,115 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Invoice</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-progress-bar *ngIf="this.loading===1"  type="indeterminate"></ion-progress-bar>
+<ion-content fullscreen>
+  <ion-list>
+    <ng-container *ngIf="this.data">
+      <ion-item-divider>
+        <ion-label color="medium">
+          <h2>Informations</h2>
+        </ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let item of this.data.orderDetailModels; let i = index">
+        <ion-avatar slot="start">
+          <ion-img
+            [src]="
+              this.appSetting.apiAddress +
+              '/images/Image' +
+              item.itemID +
+              '.jpg'
+            "
+          ></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>
+            {{ this.appSetting.itemJoin(item.itemID).itemName }} 
+          </h2>
+          <p>
+            <ion-buttons slot="end">
+              <ion-button disabled *ngIf="item.itemQty > 1">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button disabled *ngIf="item.itemQty === 1">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+              <p>{{ item.itemQty }}</p>
+              <ion-button disabled>
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </p>
+        </ion-label>
+        <p>{{ item.itemFinalPrice }}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h2>Total</h2>
+        </ion-label>
+        <p>{{ displayTotal }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Tax</h2>
+        </ion-label>
+        <p>{{ displayTotal * 0.05 }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Grand Total</h2>
+        </ion-label>
+        <p>{{ displayTotal + displayTotal * 0.05 }}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h2>Status</h2>
+        </ion-label>
+        <p>{{ this.status }}</p>
+      </ion-item>
+      <ion-button
+        *ngIf="this.status === 'delivering'"
+        (click)="showMap()"
+        expand="block"
+        color="primary"
+        shape="round"
+      >
+        Track Your Order Location
+      </ion-button>
+    </ng-container>
+
+    <ion-item-divider>
+      <ion-label color="medium">
+        <h2>Search</h2>
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label> Invoice No: </ion-label>
+      <ion-input
+        [(ngModel)]="this.invoiceNo"
+        type="number"
+        placeholder="eg:Oxxxxxxx"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label> Phone No : </ion-label>
+      <ion-input
+        [(ngModel)]="this.phoneNo"
+        type="tel"
+        placeholder="eg:09xxxxxxx"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-toolbar>
+    <ion-button expand="full" (click)="search()" color="primary">
+      Check Your Order
+    </ion-button>
+  </ion-toolbar>
+</ion-content>

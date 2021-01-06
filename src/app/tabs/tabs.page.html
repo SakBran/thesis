@@ -1,0 +1,6 @@
+
+  <app-admin *ngIf="this.appsetting.loginType==='admin'"></app-admin>
+
+  <app-delivery *ngIf="this.appsetting.loginType==='rider'"></app-delivery>
+
+  <app-resturant *ngIf="this.appsetting.loginType==='resturant'"></app-resturant>

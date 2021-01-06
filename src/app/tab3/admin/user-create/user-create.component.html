@@ -1,0 +1,105 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <ion-chip (click)="back()">
+            <ion-icon name="chevron-back-circle-outline"></ion-icon>
+            <ion-label>Back</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="5">
+
+        </ion-col>
+        <ion-col size="3">
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>User's General Info</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="person-outline"></ion-icon>Username
+              <ion-text *ngIf="this.userData.username===''||this.userData.username===null" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="userData.username" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="lock-open-outline"></ion-icon>Password
+              <ion-text *ngIf="this.userData.password===''||this.userData.password===null" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="userData.password" type="password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="call-outline"></ion-icon> Please enter phone
+              <ion-text *ngIf="this.userData.phone===''||this.userData.phone===null" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="this.userData.phone" type="tel"></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Security Info</ion-card-subtitle>
+
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="shield-checkmark-outline"></ion-icon> Select User type
+              <ion-text *ngIf="this.userData.usertype===0" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-select [(ngModel)]="userData.usertype" placeholder="Select one">
+              <ng-container *ngFor="let item of this.userTypeData;let i=index;">
+                <ion-select-option   [value]="item.id">
+                  {{i+1}}.{{item.usertypeName}}</ion-select-option>
+              </ng-container>
+              
+             
+            </ion-select>
+
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button expand="block" color="secondary" shape="round">
+              Cancel
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button *ngIf="this.id===0" (click)="create()" expand="block" color="secondary" shape="round">
+              Save
+            </ion-button>
+            <ion-button *ngIf="this.id!==0" (click)="update()" expand="block" color="secondary" shape="round">
+              Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+   
+</ion-content>

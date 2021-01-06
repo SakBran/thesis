@@ -1,0 +1,65 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Goods Informations</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item
+      *ngFor="let item of this.appSetting.orderDetailViewList; let i = index"
+    >
+      <ion-label>
+        <ion-text color="dark">
+          <h2>{{ item.itemName }}</h2>
+        </ion-text>
+        <p>
+          <ion-buttons slot="end">
+            <ion-button
+              *ngIf="item.orderDetialModel.itemQty > 1"
+              (click)="count(i + 1, 'minus')"
+            >
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </ion-button>
+
+            <ion-button
+              *ngIf="item.orderDetialModel.itemQty === 1"
+              (click)="delete(i)"
+            >
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+            <p>{{ item.orderDetialModel.itemQty }}</p>
+            <ion-button (click)="count(i + 1, 'add')">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </p>
+      </ion-label>
+      <p>{{ item.orderDetialModel.itemFinalPrice }}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Total</h2>
+      </ion-label>
+      <p>{{ total() }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Tax</h2>
+      </ion-label>
+      <p>{{ total()*0.05 }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Grand Total</h2>
+      </ion-label>
+      <p>{{ total()+(total()*0.05) }}</p>
+    </ion-item>
+  </ion-list>
+  <ion-button *ngIf="this.appSetting.orderDetailViewList.length>0"  (click)="clientInfo()" expand="block" color="primary" shape="round">
+    Order Now
+  </ion-button>
+</ion-content>

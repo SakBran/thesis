@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons (click)="back()" slot="start">
+      <ion-icon slot="icon-only" name="chevron-back-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/managmenet/tabs/tab3/foodCreate">
+        <ion-icon slot="icon-only" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-select interface="action-sheet"  (ngModelChange)="modelChanged($event)"  [(ngModel)]="resturant">
+      
+      <ion-select-option
+        *ngFor="let item of this.appSetting.resturandDataList"
+        [value]="item.id"
+        >{{ item.shopname }}</ion-select-option
+      >
+    </ion-select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let item of this.appSetting.foodDataList| paginate: { itemsPerPage: 10, currentPage: page }">
+    <ion-card-content>
+      <ion-item>
+      
+        <ion-label>
+          <p>
+            <ion-icon name="pizza"></ion-icon> Base Item: {{this.appSetting.mainItemName(item.mainitem_id)}}
+          </p>
+          <p>
+            <ion-icon name="fast-food-outline"></ion-icon> Sub Item: {{ item.itemName }}
+          </p>
+          <p>
+            <ion-icon name="card-outline"></ion-icon> Price {{ item.price }}
+          </p>
+        </ion-label>
+
+        <ion-button
+          (click)="onEdit(item.id)"
+          color="secondary"
+        >
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button
+          
+          (click)="onDelete(item.id)"
+          color="danger"
+        >
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+<!----
+        <ion-button *ngIf="this.item.status !== 'active'" color="success">
+          <ion-icon name="shield-checkmark-outline"></ion-icon> Processing
+        </ion-button>---->
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-row>
+    <ion-col size="12">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </ion-col>
+  </ion-row>
+</ion-content>

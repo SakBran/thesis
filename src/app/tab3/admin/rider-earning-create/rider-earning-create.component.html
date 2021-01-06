@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <ion-chip (click)="back()">
+            <ion-icon name="chevron-back-circle-outline"></ion-icon>
+            <ion-label>Back</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="5">
+
+        </ion-col>
+        <ion-col size="3">
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle color="primary">Location & Price Registration Form</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Shop's General Info</ion-card-subtitle>
+
+        </ion-card-header>
+        <ion-card-content>
+
+         
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="card-outline"></ion-icon> Delivery Charges<ion-text
+                *ngIf="this.riderEarningData.deliveryCharges===0" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="riderEarningData.deliveryCharges" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="card-outline"></ion-icon> Rider Earnging<ion-text
+                *ngIf="this.riderEarningData.riderEarning===0" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="riderEarningData.riderEarning" type="text"></ion-input>
+          </ion-item>
+         
+         <!-------- <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="bicycle-outline"></ion-icon> Rider Earnings<ion-text
+                *ngIf="this.locationData.riderEarning===0" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="locationData.riderEarning" type="text"></ion-input>
+          </ion-item>-------->
+
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button expand="block" color="secondary" shape="round">
+              Cancel
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button *ngIf="this.id===0" (click)="create()" expand="block" color="secondary" shape="round">
+              Save
+            </ion-button>
+            <ion-button *ngIf="this.id!==0" (click)="update()" expand="block" color="secondary" shape="round">
+              Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

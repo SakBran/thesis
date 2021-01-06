@@ -1,0 +1,325 @@
+<ion-toolbar color="light">
+
+  <ion-chip outline (click)="zoneChoose()" color="tertiary" slot="end" interface="action-sheet">
+    <ion-icon name="earth-outline"></ion-icon>
+    <ion-label>{{searchZone}}</ion-label>
+
+  </ion-chip>
+  <ion-select class="none" id="selectZone" value="notifications" interface="action-sheet" [(ngModel)]="searchZone"
+    (ngModelChange)="FilterZone($event)">
+    <ion-select-option [value]="1">1</ion-select-option>
+    <ion-select-option [value]="2">2</ion-select-option>
+    <ion-select-option [value]="3">3</ion-select-option>
+    <ion-select-option [value]="4">4</ion-select-option>
+    <ion-select-option [value]="5">5</ion-select-option>
+  </ion-select>
+
+  <ion-chip outline (click)="resturantChoose()" color="tertiary" slot="end" interface="action-sheet">
+    <ion-icon name="restaurant"></ion-icon>
+    <ion-label>Resturant</ion-label>
+
+  </ion-chip>
+  <ion-select class="none" id="select" value="notifications" interface="action-sheet"
+    [(ngModel)]="this.appSetting.searchResturant" (ngModelChange)="Filter($event)">
+    <ion-select-option *ngFor="let item of this.appSetting.resturandDataList" [value]="item.id">{{ item.shopname }}
+    </ion-select-option>
+  </ion-select>
+
+  <ion-chip slot="end" (click)="categoryChoose()" outline color="tertiary">
+    <ion-icon name="fast-food-outline"></ion-icon>
+    <ion-label>Foods</ion-label>
+
+  </ion-chip>
+  <ion-select class="none" id="selectCategory" value="notifications" interface="action-sheet"
+    [(ngModel)]="searchCategory" (ngModelChange)="FilterCategory($event)">
+    <ion-select-option *ngFor="let item of this.appSetting.categoryList" [value]="item.id">{{ item.categoryName }}
+    </ion-select-option>
+  </ion-select>
+
+  <!-- <ion-chip slot="end" (click)="refresh()" outline color="tertiary">
+      <ion-icon name="arrow-back"></ion-icon>
+      <ion-label>Back</ion-label>
+    </ion-chip> -->
+
+</ion-toolbar>
+<ion-toolbar class="searchBar" color="light">
+  <ion-searchbar id='searchBar' [(ngModel)]="this.customerSearch" slot="secondary" autofocus="true">
+  </ion-searchbar>
+  <ion-button slot="primary" (click)="onSearch()" expand="block" >
+    Search
+  </ion-button>
+</ion-toolbar>
+<!-- (ngModelChange)="onSearch($event)" -->
+<ion-grid *ngIf="this.appSetting.searchResturant!==0 || this.appSetting.customerSearch!==''">
+  <ion-row *ngIf="this.appSetting.mainItemDataList.length !== 0">
+    <ion-col *ngFor="let item of this.appSetting.mainItemDataList | paginate: { itemsPerPage: 8, currentPage: page }"
+      size="12" size-sm="3">
+      <div class="center">
+        <ion-card class="animate__animated animate__zoomInDown" button (click)="cardClick(item.id)">
+          <img class="center animate__animated animate__bounce animate__delay-2s" src="{{
+              this.appSetting.apiAddress + '/images/MainImage' + item.id + '.jpg'
+            }}" />
+          <ion-card-header>
+            <ion-card-subtitle>
+              {{
+                this.appSetting.resName(item.resturant_id)
+              }}</ion-card-subtitle>
+            <ion-card-title class="icon animate__animated animate__rubberBand animate__delay-3s">{{ item.name }}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-----   {{ this.appSetting.resName(item.resturant_id) }}---->
+            <!-----      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota,
+        Madison was named the capital of the Wisconsin Territory in 1836.---->
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+    <ion-col size="12"><pagination-controls (pageChange)="page = $event"></pagination-controls></ion-col>
+ 
+  </ion-row>
+
+  <ion-row *ngIf="this.appSetting.mainItemDataList.length === 0">
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+
+  </ion-row>
+
+  
+      
+  
+</ion-grid>
+
+
+<ion-grid *ngIf="this.appSetting.searchResturant===0 && this.appSetting.customerSearch===''">
+  <ion-row *ngIf="this.appSetting.resturandDataList.length !== 0">
+    <ion-col *ngFor="let item of this.appSetting.resturandDataList | paginate: { itemsPerPage: 8, currentPage: pageResturant }" size="12" size-sm="3">
+      <div class="center">
+        <ion-card class="animate__animated animate__zoomInDown" button (click)="Filter(item.id)">
+          <img class="center animate__animated animate__bounce animate__delay-2s" src="{{
+              this.appSetting.apiAddress + '/images/MainImage' + this.resItemID(item.id) + '.jpg'
+            }}" />
+          <ion-card-header>
+            <ion-card-subtitle>
+              <!----- {{
+                item.phone
+              }}---->
+            </ion-card-subtitle>
+            <ion-card-title class="icon animate__animated animate__rubberBand animate__delay-3s">{{ item.shopname }}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-----   {{ this.appSetting.resName(item.resturant_id) }}---->
+            <!------ Founded in 1829 on an isthmus between Lake Monona and Lake Mendota,
+        Madison was named the capital of the Wisconsin Territory in 1836.----->
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+    <ion-col size="12"><pagination-controls (pageChange)="pageResturant = $event"></pagination-controls></ion-col>
+ 
+  </ion-row>
+
+
+
+  <ion-row *ngIf="this.appSetting.resturandDataList.length === 0">
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" size-sm="3">
+      <div>
+        <ion-card button (click)="cardClick('cardID')">
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated></ion-skeleton-text><br />
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

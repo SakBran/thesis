@@ -1,0 +1,106 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Delivery Information</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Your Information</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="this.appSetting.orderData.clientName"
+          placeholder="eg:U Mg Mg"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input
+          type="tel"
+          [(ngModel)]="this.appSetting.orderData.clitentPhone"
+          placeholder="eg:09XXXXXXX"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item-divider>
+        <ion-label>Address</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label position="floating">Township</ion-label>
+        <ion-select 
+          [(ngModel)]="this.locationSet"
+          (ngModelChange)="deliverChange($event)"
+        >
+          <ion-select-option
+            *ngFor="let item of this.location; let i = index"
+            [value]="item"
+          >
+            {{ i + 1 }}.{{ item }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Flat No</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="this.appSetting.orderData.clitentFlatNo"
+          placeholder="eg:2104"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="this.appSetting.orderData.clientAddress"
+          placeholder="eg:Nay Pyi Taw,XXXX"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item-divider>
+        <ion-label>Delivery Date & Time</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label position="floating">Date for Delivery</ion-label>
+        <ion-datetime
+          ionCancel
+          [(ngModel)]="this.appSetting.orderData.deliveryDate"
+        ></ion-datetime>
+        <ion-label position="floating">Time for Delivery</ion-label>
+        <ion-datetime
+          [(ngModel)]="this.appSetting.orderData.deliveryDate"
+          display-format="h:mm A"
+          picker-format="h:mm A"
+          value="1990-02-19T07:43Z"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item-divider>
+        <ion-label>Delivery Charges</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label>Estimate!</ion-label>
+        <p *ngIf="this.appSetting.orderData.Township_id!==0" >{{ this.appSetting.orderData.deliveryCharegs }}</p>
+        <p *ngIf="this.appSetting.orderData.Township_id===0">........</p>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  <ion-button *ngIf="this.appSetting.orderData.Township_id!==0" (click)="submitOrder()" expand="block" color="primary" shape="round">
+    Submit Order
+  </ion-button>
+  <ion-button *ngIf="this.appSetting.orderData.Township_id===0" disabled expand="block" color="danger" shape="round">
+    Select Same Zone Please.
+  </ion-button>
+</ion-content>

@@ -1,0 +1,79 @@
+ion-button,
+ion-toolbar.dark {
+    --background: #212224;
+}
+
+@media only screen and (max-width: 600px) {
+    ion-card.search {
+        background-image: url("../../../assets/mobile.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 667px;
+        text-align: justify;
+        border-radius: 0px;
+        margin: 0px;
+    }
+
+    ion-button {
+        width: 100%;
+    }
+
+    ion-card-content.searchContent {
+
+        margin-top: 200px;
+        min-height: 500px;
+        max-width: 500px;
+        margin-left: 5%;
+        margin-right: 5%;
+
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    ion-card.search {
+        background-image: url("../../../assets/desktop.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 667px;
+        text-align: justify;
+        border-radius: 0px;
+        margin: 0px;
+
+    }
+
+    ion-card-content.searchContent {
+        border-radius: 5px;
+        background-color: #FFE400;
+        margin-top: 200px;
+        margin-left: 20%;
+        margin-right: 20%;
+
+        min-height: auto;
+        // max-width: 500px;
+
+    }
+}
+
+
+ion-slides.foot {
+    background-color: #222428;
+}
+
+h1.searchTitle {
+    line-height: 1.8;
+}
+
+ion-title,
+ion-icon.title {
+    color: #ffe400 !important;
+}
+
+ion-img.icon {
+    max-width: 45px;
+    max-height: 45px;
+    background-color: #FFE400;
+    border-radius: 25px;
+    cursor: pointer;
+}

@@ -1,0 +1,328 @@
+node_modules
+www
+www/index.html
+android/build.gradle
+android/.idea/misc.xml
+android/app/src/main/res/xml/config.xml
+android/gradle/wrapper/gradle-wrapper.properties
+ios/.gitignore
+ios/App/Podfile
+ios/App/App/AppDelegate.swift
+ios/App/App/capacitor.config.json
+ios/App/App/config.xml
+ios/App/App/Info.plist
+ios/App/App/Assets.xcassets/Contents.json
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@1x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@2x-1.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@2x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@3x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@1x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@2x-1.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@2x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@3x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@1x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@2x-1.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@2x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@3x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-60x60@2x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-60x60@3x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-76x76@1x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-76x76@2x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-83.5x83.5@2x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png
+ios/App/App/Assets.xcassets/AppIcon.appiconset/Contents.json
+ios/App/App/Assets.xcassets/Splash.imageset/Contents.json
+ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732-1.png
+ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732-2.png
+ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732.png
+ios/App/App/Base.lproj/LaunchScreen.storyboard
+ios/App/App/Base.lproj/Main.storyboard
+ios/App/App.xcodeproj/project.pbxproj
+ios/App/App.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+ios/App/App.xcworkspace/contents.xcworkspacedata
+ios/App/App.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+android/build.gradle
+android/.idea/misc.xml
+android/app/src/main/res/xml/config.xml
+android/gradle/wrapper/gradle-wrapper.properties
+platforms/android/app/src/main/assets/www/common-es5.js
+platforms/android/app/src/main/assets/www/common-es5.js.map
+platforms/android/app/src/main/assets/www/common-es2015.js
+platforms/android/app/src/main/assets/www/common-es2015.js.map
+platforms/android/app/src/main/assets/www/cordova.js.map
+platforms/android/app/src/main/assets/www/index.html
+platforms/android/app/src/main/assets/www/login-login-module-es5.js
+platforms/android/app/src/main/assets/www/login-login-module-es5.js.map
+platforms/android/app/src/main/assets/www/login-login-module-es2015.js
+platforms/android/app/src/main/assets/www/login-login-module-es2015.js.map
+platforms/android/app/src/main/assets/www/main-es5.js
+platforms/android/app/src/main/assets/www/main-es5.js.map
+platforms/android/app/src/main/assets/www/main-es2015.js
+platforms/android/app/src/main/assets/www/main-es2015.js.map
+platforms/android/app/src/main/assets/www/polyfills-es5.js
+platforms/android/app/src/main/assets/www/polyfills-es5.js.map
+platforms/android/app/src/main/assets/www/polyfills-es2015.js
+platforms/android/app/src/main/assets/www/polyfills-es2015.js.map
+platforms/android/app/src/main/assets/www/styles-es5.js
+platforms/android/app/src/main/assets/www/styles-es5.js.map
+platforms/android/app/src/main/assets/www/styles-es2015.js
+platforms/android/app/src/main/assets/www/styles-es2015.js.map
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es5.js
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es5.js.map
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es2015.js
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es2015.js.map
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es5.js
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es5.js.map
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es2015.js
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es2015.js.map
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es5.js
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es5.js.map
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es2015.js
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es2015.js.map
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es5.js
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es5.js.map
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es2015.js
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es2015.js.map
+platforms/android/app/src/main/assets/www/vendor-es5.js
+platforms/android/app/src/main/assets/www/vendor-es5.js.map
+platforms/android/app/src/main/assets/www/vendor-es2015.js
+platforms/android/app/src/main/assets/www/vendor-es2015.js.map
+platforms/android/app/src/main/assets/www/assets/icon/timer.svg
+platforms/ios/.gitignore
+platforms/ios/frameworks.json
+platforms/ios/ios.json
+platforms/ios/Podfile
+platforms/ios/pods-debug.xcconfig
+platforms/ios/pods-release.xcconfig
+platforms/ios/pods.json
+platforms/ios/CordovaLib/cordova.js
+platforms/ios/CordovaLib/CordovaLib_Prefix.pch
+platforms/ios/CordovaLib/VERSION
+platforms/ios/CordovaLib/Classes/Private/CDVDebug.h
+platforms/ios/CordovaLib/Classes/Private/CDVJSON_private.h
+platforms/ios/CordovaLib/Classes/Private/CDVJSON_private.m
+platforms/ios/CordovaLib/Classes/Private/CDVPlugin+Private.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVGestureHandler/CDVGestureHandler.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVGestureHandler/CDVGestureHandler.m
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVHandleOpenURL/CDVHandleOpenURL.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVHandleOpenURL/CDVHandleOpenURL.m
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.m
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLaunchScreen/CDVLaunchScreen.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLaunchScreen/CDVLaunchScreen.m
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLogger/CDVLogger.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLogger/CDVLogger.m
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewEngine.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewEngine.m
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewProcessPoolFactory.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewProcessPoolFactory.m
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewUIDelegate.h
+platforms/ios/CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewUIDelegate.m
+platforms/ios/CordovaLib/Classes/Public/CDV.h
+platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.h
+platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.m
+platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h
+platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h
+platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegate.h
+platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.h
+platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.m
+platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.h
+platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.m
+platforms/ios/CordovaLib/Classes/Public/CDVConfigParser.h
+platforms/ios/CordovaLib/Classes/Public/CDVConfigParser.m
+platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.h
+platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.m
+platforms/ios/CordovaLib/Classes/Public/CDVPlugin.h
+platforms/ios/CordovaLib/Classes/Public/CDVPlugin.m
+platforms/ios/CordovaLib/Classes/Public/CDVPlugin+Resources.h
+platforms/ios/CordovaLib/Classes/Public/CDVPlugin+Resources.m
+platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.h
+platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.m
+platforms/ios/CordovaLib/Classes/Public/CDVScreenOrientationDelegate.h
+platforms/ios/CordovaLib/Classes/Public/CDVTimer.h
+platforms/ios/CordovaLib/Classes/Public/CDVTimer.m
+platforms/ios/CordovaLib/Classes/Public/CDVURLSchemeHandler.h
+platforms/ios/CordovaLib/Classes/Public/CDVURLSchemeHandler.m
+platforms/ios/CordovaLib/Classes/Public/CDVViewController.h
+platforms/ios/CordovaLib/Classes/Public/CDVViewController.m
+platforms/ios/CordovaLib/Classes/Public/CDVWebViewEngineProtocol.h
+platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.h
+platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.m
+platforms/ios/CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.h
+platforms/ios/CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.m
+platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h
+platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.m
+platforms/ios/CordovaLib/CordovaLib.xcodeproj/project.pbxproj
+platforms/ios/SideCar Delivery/.gitignore
+platforms/ios/SideCar Delivery/Bridging-Header.h
+platforms/ios/SideCar Delivery/CDVLaunchScreen.storyboard
+platforms/ios/SideCar Delivery/config.xml
+platforms/ios/SideCar Delivery/Entitlements-Debug.plist
+platforms/ios/SideCar Delivery/Entitlements-Release.plist
+platforms/ios/SideCar Delivery/main.m
+platforms/ios/SideCar Delivery/SideCar Delivery-Info.plist
+platforms/ios/SideCar Delivery/SideCar Delivery-Prefix.pch
+platforms/ios/SideCar Delivery/Classes/AppDelegate.h
+platforms/ios/SideCar Delivery/Classes/AppDelegate.m
+platforms/ios/SideCar Delivery/Classes/MainViewController.h
+platforms/ios/SideCar Delivery/Classes/MainViewController.m
+platforms/ios/SideCar Delivery/Classes/MainViewController.xib
+platforms/ios/SideCar Delivery/Images.xcassets/Contents.json
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/Contents.json
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-20.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-20@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-20@3x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-24@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-27.5@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-29.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-29@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-29@3x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-40.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-40@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-44@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-50.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-50@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-60@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-60@3x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-72.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-72@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-76.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-76@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-83.5@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-86@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-98@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon-1024.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon.png
+platforms/ios/SideCar Delivery/Images.xcassets/AppIcon.appiconset/icon@2x.png
+platforms/ios/SideCar Delivery/Images.xcassets/BackgroundColor.colorset/Contents.json
+platforms/ios/SideCar Delivery/Images.xcassets/LaunchStoryboard.imageset/Contents.json
+platforms/ios/SideCar Delivery/Images.xcassets/LaunchStoryboard.imageset/Default@2x~universal~anyany.png
+platforms/ios/SideCar Delivery/Plugins/README
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-device/CDVDevice.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-device/CDVDevice.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-geolocation/CDVLocation.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-geolocation/CDVLocation.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVInAppBrowserOptions.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVInAppBrowserOptions.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVWKInAppBrowser.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVWKInAppBrowser.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-keyboard/CDVIonicKeyboard.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-keyboard/CDVIonicKeyboard.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/CDVWKProcessPoolFactory.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/CDVWKProcessPoolFactory.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/CDVWKWebViewEngine.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/CDVWKWebViewEngine.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/CDVWKWebViewUIDelegate.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/CDVWKWebViewUIDelegate.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/IONAssetHandler.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-ionic-webview/IONAssetHandler.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-splashscreen/CDVSplashScreen.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-splashscreen/CDVSplashScreen.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-splashscreen/CDVViewController+SplashScreen.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-splashscreen/CDVViewController+SplashScreen.m
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-statusbar/CDVStatusBar.h
+platforms/ios/SideCar Delivery/Plugins/cordova-plugin-statusbar/CDVStatusBar.m
+platforms/ios/SideCar Delivery/Scripts/copy-www-build-step.sh
+platforms/ios/SideCar Delivery.xcodeproj/project.pbxproj
+platforms/ios/SideCar Delivery.xcworkspace/contents.xcworkspacedata
+platforms/ios/SideCar Delivery.xcworkspace/xcshareddata/xcschemes/SideCar Delivery.xcscheme
+platforms/ios/cordova/Api.js
+platforms/ios/cordova/apple_ios_version
+platforms/ios/cordova/apple_osx_version
+platforms/ios/cordova/apple_xcode_version
+platforms/ios/cordova/build
+platforms/ios/cordova/build-debug.xcconfig
+platforms/ios/cordova/build-extras.xcconfig
+platforms/ios/cordova/build-release.xcconfig
+platforms/ios/cordova/build.bat
+platforms/ios/cordova/build.xcconfig
+platforms/ios/cordova/check_reqs
+platforms/ios/cordova/check_reqs.bat
+platforms/ios/cordova/clean
+platforms/ios/cordova/clean.bat
+platforms/ios/cordova/defaults.xml
+platforms/ios/cordova/log
+platforms/ios/cordova/log.bat
+platforms/ios/cordova/loggingHelper.js
+platforms/ios/cordova/run
+platforms/ios/cordova/run.bat
+platforms/ios/cordova/version
+platforms/ios/cordova/version.bat
+platforms/ios/cordova/lib/BridgingHeader.js
+platforms/ios/cordova/lib/build.js
+platforms/ios/cordova/lib/check_reqs.js
+platforms/ios/cordova/lib/clean.js
+platforms/ios/cordova/lib/list-devices
+platforms/ios/cordova/lib/list-emulator-build-targets
+platforms/ios/cordova/lib/list-emulator-images
+platforms/ios/cordova/lib/list-started-emulators
+platforms/ios/cordova/lib/listDevices.js
+platforms/ios/cordova/lib/listEmulatorBuildTargets.js
+platforms/ios/cordova/lib/listEmulatorImages.js
+platforms/ios/cordova/lib/listStartedEmulators.js
+platforms/ios/cordova/lib/Podfile.js
+platforms/ios/cordova/lib/PodsJson.js
+platforms/ios/cordova/lib/prepare.js
+platforms/ios/cordova/lib/projectFile.js
+platforms/ios/cordova/lib/run.js
+platforms/ios/cordova/lib/start-emulator
+platforms/ios/cordova/lib/versions.js
+platforms/ios/cordova/lib/plugman/pluginHandlers.js
+platforms/ios/platform_www/cordova_plugins.js
+platforms/ios/platform_www/cordova.js
+platforms/ios/platform_www/wk-plugin.js
+platforms/ios/platform_www/cordova-js-src/exec.js
+platforms/ios/platform_www/cordova-js-src/platform.js
+platforms/ios/platform_www/cordova-js-src/plugin/ios/console.js
+platforms/ios/platform_www/cordova-js-src/plugin/ios/launchscreen.js
+platforms/ios/platform_www/cordova-js-src/plugin/ios/logger.js
+platforms/ios/platform_www/cordova-js-src/plugin/ios/wkwebkit.js
+platforms/android/app/src/main/assets/www/common-es5.js
+platforms/android/app/src/main/assets/www/common-es5.js.map
+platforms/android/app/src/main/assets/www/common-es2015.js
+platforms/android/app/src/main/assets/www/common-es2015.js.map
+platforms/android/app/src/main/assets/www/cordova.js.map
+platforms/android/app/src/main/assets/www/index.html
+platforms/android/app/src/main/assets/www/login-login-module-es5.js
+platforms/android/app/src/main/assets/www/login-login-module-es5.js.map
+platforms/android/app/src/main/assets/www/login-login-module-es2015.js
+platforms/android/app/src/main/assets/www/login-login-module-es2015.js.map
+platforms/android/app/src/main/assets/www/main-es5.js
+platforms/android/app/src/main/assets/www/main-es5.js.map
+platforms/android/app/src/main/assets/www/main-es2015.js
+platforms/android/app/src/main/assets/www/main-es2015.js.map
+platforms/android/app/src/main/assets/www/polyfills-es5.js
+platforms/android/app/src/main/assets/www/polyfills-es5.js.map
+platforms/android/app/src/main/assets/www/polyfills-es2015.js
+platforms/android/app/src/main/assets/www/polyfills-es2015.js.map
+platforms/android/app/src/main/assets/www/styles-es5.js
+platforms/android/app/src/main/assets/www/styles-es5.js.map
+platforms/android/app/src/main/assets/www/styles-es2015.js
+platforms/android/app/src/main/assets/www/styles-es2015.js.map
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es5.js
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es5.js.map
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es2015.js
+platforms/android/app/src/main/assets/www/tab1-tab1-module-es2015.js.map
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es5.js
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es5.js.map
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es2015.js
+platforms/android/app/src/main/assets/www/tab2-tab2-module-es2015.js.map
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es5.js
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es5.js.map
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es2015.js
+platforms/android/app/src/main/assets/www/tab3-tab3-module-es2015.js.map
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es5.js
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es5.js.map
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es2015.js
+platforms/android/app/src/main/assets/www/tabs-tabs-module-es2015.js.map
+platforms/android/app/src/main/assets/www/vendor-es5.js
+platforms/android/app/src/main/assets/www/vendor-es5.js.map
+platforms/android/app/src/main/assets/www/vendor-es2015.js
+platforms/android/app/src/main/assets/www/vendor-es2015.js.map
+platforms/android/app/src/main/assets/www/assets/icon/timer.svg
+plugins/ios.json
+www 2.zip

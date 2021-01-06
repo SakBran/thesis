@@ -1,0 +1,92 @@
+<ng-container *ngIf="this.appSetting.loginType === 'admin'">
+  <ng-container *ngIf="this.orderDetail.isPickUpResturant === true">
+    <ion-label color="primary">
+      <p><ion-icon name="checkmark-circle-outline"></ion-icon>Resturant</p>
+    </ion-label>
+  </ng-container>
+  <ng-container *ngIf="this.orderDetail.isPickUpRider === true">
+    <ion-label color="primary">
+      <p><ion-icon name="checkmark-circle-outline"></ion-icon>Rider</p>
+    </ion-label>
+  </ng-container>
+</ng-container>
+
+<ion-item>
+  <ion-label>
+    <ng-container *ngIf="this.orderDetail.status === 'no'">
+      <ion-text color="danger">Please Check!</ion-text>
+    </ng-container>
+
+    <ng-container *ngIf="this.orderDetail.status === 'yes'">
+      <ion-text color="success">Acepted</ion-text>
+    </ng-container>
+
+    <ng-container *ngIf="this.orderDetail.status === 'pending'">
+      <ion-text color="secondary">Processing</ion-text>
+    </ng-container>
+    <p>{{ this.foodDescription(orderDetail.itemID).resturant.toString() }}</p>
+    <p>{{ this.foodDescription(orderDetail.itemID).main.toString()  }} ({{ this.foodDescription(orderDetail.itemID).secondary.toString()}})</p>
+    <p>Quantity:{{ orderDetail.itemQty }}</p>
+    <p>Discount:{{ orderDetail.discount }}</p>
+    <p>Price:{{ orderDetail.itemFinalPrice }}</p>
+  </ion-label>
+  <ng-container *ngIf="this.orderDetail.status === 'pending'">
+    <ion-checkbox
+      [(ngModel)]="available"
+      (ngModelChange)="resendListFun($event)"
+    ></ion-checkbox>
+  </ng-container>
+
+  <ng-container *ngIf="this.orderDetail.status === 'no'">
+    <ion-button
+      routerLink="/managmenet/tabs/tab1/pendingEdit/{{
+        orderDetail.orderDetailID
+      }}"
+      color="secondary"
+    >
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button>
+    <ion-button
+      (click)="this.onDelete(orderDetail.orderDetailID)"
+      color="danger"
+    >
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ng-container>
+</ion-item>
+<ion-item>
+  <ion-label color="success">
+    <p>Remark:{{ orderDetail.remark }}</p>
+  </ion-label>
+</ion-item>
+<ng-container
+  *ngIf="this.available === false && this.appSetting.loginType === 'resturant'"
+>
+<!-------
+  <ion-item>
+    <ion-label color="danger" position="floating">Comment</ion-label>
+    <ion-input
+      [(ngModel)]="this.comment"
+      (ngModelChange)="resendListKeyPress($event)"
+      type="text"
+      placeholder="eg: Only four item available"
+    ></ion-input>
+  </ion-item>----->
+</ng-container>
+<ng-container
+  *ngIf="orderDetail.status === 'no' && this.appSetting.loginType === 'admin'"
+>
+<!--------
+  <ion-item>
+    <ion-label color="danger" position="floating">Comment</ion-label>
+    <ion-input
+      value="{{ orderDetail.comment }}"
+      type="text"
+      placeholder="eg: Only four item available"
+      readonly
+    >
+    </ion-input>
+  </ion-item>
+  ------->
+</ng-container>
+<hr />

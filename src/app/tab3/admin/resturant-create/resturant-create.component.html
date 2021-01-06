@@ -1,0 +1,167 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <ion-chip (click)="back()">
+            <ion-icon name="chevron-back-circle-outline"></ion-icon>
+            <ion-label>Back</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="5"> </ion-col>
+        <ion-col size="3"> </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Shop's General Info</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="person-outline"></ion-icon> Shop's
+              username<ion-text
+                *ngIf="
+                  this.resData.username === '' || this.resData.username === null
+                "
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="resData.username" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="business-outline"></ion-icon> Shop's name<ion-text
+                *ngIf="
+                  this.resData.shopname === '' || this.resData.shopname === null
+                "
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="resData.shopname" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="lock-open-outline"></ion-icon> Password<ion-text
+                *ngIf="
+                  this.resData.password === '' || this.resData.password === null
+                "
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input
+              [(ngModel)]="resData.password"
+              type="password"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="call-outline"></ion-icon> Phone<ion-text
+                *ngIf="this.resData.phone === '' || this.resData.phone === null"
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="resData.phone" type="tel"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="call-outline"></ion-icon> Zone<ion-text
+                *ngIf=" this.resData.locationID === null"
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="resData.locationID" type="number"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="card-outline"></ion-icon> Select Type<ion-text
+                *ngIf="
+                  this.resData.resturantType === '' ||
+                  this.resData.resturantType === null
+                "
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+
+            <ion-select [(ngModel)]="this.resData.resturantType">
+              <ion-select-option [value]="this.credit"
+                >Credit</ion-select-option
+              >
+              <ion-select-option [value]="this.debit">Debit</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Shop's Location</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="location-outline"></ion-icon> Longitude
+            </ion-label>
+            <ion-input
+              [(ngModel)]="resData.longitude"
+              type="number"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="location-outline"></ion-icon> Latitude
+            </ion-label>
+            <ion-input [(ngModel)]="resData.latitude" type="number"></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button expand="block" color="secondary" shape="round">
+              Cancel
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button
+              *ngIf="this.id === 0"
+              (click)="create()"
+              expand="block"
+              color="secondary"
+              shape="round"
+            >
+              Save
+            </ion-button>
+            <ion-button
+              *ngIf="this.id !== 0"
+              (click)="update()"
+              expand="block"
+              color="secondary"
+              shape="round"
+            >
+              Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+   
+</ion-content>

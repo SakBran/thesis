@@ -1,0 +1,62 @@
+img.icon{
+    border-radius: 0px;
+    max-width: 20px;
+    max-height: 20px;
+}
+
+ion-card.loginCard{
+    text-align: center;
+    background-color: #ffe400;
+    
+}
+
+ion-item{
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+ion-title,ion-icon.title{
+    color: #ffe400 !important;
+}
+
+
+ion-button,ion-toolbar.dark{
+    --background:#212224;
+}
+
+div.center{
+    text-align: center;
+    padding-top: 100px;
+    display: flex; align-items: center; justify-content: center;
+    background-image: url("../../../assets/desktop.jpg");
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+
+    div.center{
+   
+        text-align: center;
+        padding-top: 100px;
+        display: flex; align-items: center; justify-content: center;
+        background-image: url("../../../assets/mobile.jpg");
+        height: 100%;
+    }
+}
+
+
+ion-img.icon{
+    max-width: 437px;
+    max-height: 100px;
+    background-color:white;
+    border: 2p solid  #212224;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+div.centerCard{
+    text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+}
+

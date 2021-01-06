@@ -1,0 +1,8 @@
+{
+  "name": "sideCar",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

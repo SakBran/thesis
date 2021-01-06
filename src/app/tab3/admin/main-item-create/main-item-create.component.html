@@ -1,0 +1,146 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <ion-chip (click)="back()">
+            <ion-icon name="chevron-back-circle-outline"></ion-icon>
+            <ion-label>Back</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="5"> </ion-col>
+        <ion-col size="3"> </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle color="primary"
+        >Main Foods & Drink Registration Form</ion-card-subtitle
+      >
+    </ion-card-header>
+    <ion-card-content>
+      
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="fast-food-outline"></ion-icon> Food/Drink's
+              Name<ion-text
+                *ngIf="
+                  this.foodData.name === '' ||
+                  this.foodData.name === null
+                "
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="foodData.name" type="text"></ion-input>
+          </ion-item>
+
+    
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="cash-outline"></ion-icon> Descriptions<ion-text
+                *ngIf="this.foodData.description === ''"
+                color="danger"
+              >
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input [(ngModel)]="foodData.description" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="cash-outline"></ion-icon> Resturant
+              <ion-text *ngIf="this.foodData.resturant_id === 0" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+
+            <ion-select interface="action-sheet" [(ngModel)]="foodData.resturant_id">
+              <ion-select-option
+                *ngFor="let item of this.appSetting.resturandDataList"
+                [value]="item.id"
+                >{{ item.shopname }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              <ion-icon name="cash-outline"></ion-icon> Category Type
+              <ion-text *ngIf="this.foodData.category_id === 0" color="danger">
+                *
+              </ion-text>
+            </ion-label>
+
+            <ion-select interface="action-sheet" [(ngModel)]="foodData.category_id">
+              <ion-select-option
+                *ngFor="let item of this.appSetting.categoryList"
+                [value]="item.id"
+                >{{ item.categoryName }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <input type="file" (change)="fileChangeEvent($event)" />
+          </ion-item>
+          <ion-item>
+            <!-----  <ion-label position="floating" color="secondary">
+              <ion-icon name="cash-outline"></ion-icon> Image
+              Price<ion-text *ngIf="this.foodData.price === 0" color="danger">
+                *
+              </ion-text>
+            </ion-label>----->
+            <image-cropper
+              [imageChangedEvent]="imageChangedEvent"
+              [maintainAspectRatio]="true"
+              [aspectRatio]="1 / 1"
+              format="png"
+              (imageCropped)="imageCropped($event)"
+            ></image-cropper>
+          </ion-item>
+
+          <ion-item>
+            <img [src]="croppedImage" />
+          </ion-item>
+    
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button expand="block" color="secondary" shape="round">
+              Cancel
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button
+              *ngIf="this.id === 0"
+              (click)="create()"
+              expand="block"
+              color="secondary"
+              shape="round"
+            >
+              Save
+            </ion-button>
+            <ion-button
+              *ngIf="this.id !== 0"
+              (click)="update()"
+              expand="block"
+              color="secondary"
+              shape="round"
+            >
+              Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
